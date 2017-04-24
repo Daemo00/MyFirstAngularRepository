@@ -1,0 +1,10 @@
+<div class="container">
+    <h3 (click)="onSecondAssignmentClick()">Second Assignment</h3>
+    <div *ngIf="viewSecondAssignment" class="row">
+        <hr>
+        <button class="btn btn-primary" (click)="onDetailsClicked()">Display details</button>
+        <p *ngIf="btnDetailsClicked">Any content of my choice</p>
+        <p *ngFor="let line of arrLogDetailClicks; let i = index" [ngStyle]="{backgroundColor: line.number >= 5? 'blue': 'transparent'}" [ngClass]="{whiteForeground: line.number >= 5}">
+            Click number {{line.number}} happened at {{line.date}}, moreover index is {{ i }}</p>
+    </div>
+</div>
