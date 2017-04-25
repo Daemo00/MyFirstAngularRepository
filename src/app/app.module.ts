@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeworksComponent } from './homeworks/homeworks.component';
-import { RootComponent } from './root/root.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
@@ -13,19 +12,24 @@ import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recip
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { GameControlComponent } from './homeworks/third-assignment/game-control/game-control.component';
+import { OddComponent } from './homeworks/third-assignment/odd/odd.component';
+import { EvenComponent } from './homeworks/third-assignment/even/even.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeworksComponent,
-    RootComponent,
     HeaderComponent,
     ShoppingListComponent,
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,
     RecipeBookComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent
   ],
   imports: [
     BrowserModule,

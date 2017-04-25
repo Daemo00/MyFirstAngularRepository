@@ -10,13 +10,23 @@ export class HomeworksComponent {
   btnDetailsClicked = false;
   arrLogDetailClicks = [];
   viewSecondAssignment = false;
+  viewThirdAssignment = true;
 
-  onSecondAssignmentClick(){
-    this.viewSecondAssignment = !this.viewSecondAssignment;
-  }
+  odds = [];
+  evens = [];
 
   onDetailsClicked(){
     this.btnDetailsClicked = !this.btnDetailsClicked;
     this.arrLogDetailClicks.push({number: this.arrLogDetailClicks.length + 1, date: new Date()});
+  }
+
+  onGameStarted(n: number){
+    console.log(n%2);
+    if(n%2 == 1){
+      this.odds.push(n);
+    }
+    else{
+      this.evens.push(n);
+    }
   }
 }
