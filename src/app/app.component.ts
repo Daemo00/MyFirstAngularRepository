@@ -11,5 +11,9 @@ import { Component } from '@angular/core';
   // ]
 })
 export class AppComponent {
-  
+  visibility: string = 'recipe-book';
+
+  showSelectedItem(selectedItem: string){
+    this.visibility = selectedItem;
+  }
 }
