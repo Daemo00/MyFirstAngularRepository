@@ -16,6 +16,10 @@ import { GameControlComponent } from './homeworks/third-assignment/game-control/
 import { OddComponent } from './homeworks/third-assignment/odd/odd.component';
 import { EvenComponent } from './homeworks/third-assignment/even/even.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { ShoppingListService } from "app/shopping-list/shopping-list.service";
+import { AppRoutingModule } from "app/shared/app-routing.module";
+import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +35,17 @@ import { DropdownDirective } from './shared/dropdown.directive';
     GameControlComponent,
     OddComponent,
     EvenComponent,
-    DropdownDirective
+    DropdownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
