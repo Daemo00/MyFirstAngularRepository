@@ -20,6 +20,10 @@ import { ShoppingListService } from "app/shopping-list/shopping-list.service";
 import { AppRoutingModule } from "app/shared/app-routing.module";
 import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
+import { AuthGuard } from "app/shared/auth-guard.service";
+import { AuthService } from "app/shared/auth.service";
+import { CanDeactivateGuard } from "app/recipe-book/recipe-edit/can-deactivate-guard.service";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,8 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
     EvenComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,7 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, AuthService, AuthGuard, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
