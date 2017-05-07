@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
-        <h3 (click)="viewSecondAssignment = !viewSecondAssignment" style="cursor:pointer">Second Assignment</h3>
-        <div *ngIf="viewSecondAssignment" class="row">
+    <h3 (click)="viewSecondAssignment = !viewSecondAssignment" style="cursor:pointer">Second Assignment</h3>
+    <div class="row" *ngIf="viewSecondAssignment">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
             <hr>
             <button class="btn btn-primary" (click)="onDetailsClicked()">Display details</button>
             <p *ngIf="btnDetailsClicked">Any content of my choice</p>
@@ -10,9 +10,9 @@
                 Click number {{line.number}} happened at {{line.date}}, moreover index is {{ i }}</p>
         </div>
     </div>
-    <div class="row">
-        <h3 (click)="viewThirdAssignment = !viewThirdAssignment" style="cursor:pointer">Third Assignment</h3>
-        <div *ngIf="viewThirdAssignment" class="row">
+    <h3 (click)="viewThirdAssignment = !viewThirdAssignment" style="cursor:pointer">Third Assignment</h3>
+    <div class="row" *ngIf="viewThirdAssignment">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
             <h4>Bind it!</h4>
             <ol>
                 <li>Create three new components: GameControl, Odd and Even</li>
@@ -20,15 +20,87 @@
                 <li>When starting the game, an event (holding a incrementing number) should get emitted each second (ref = setInterval())</li>
                 <li>The event should be listenable from outside the component</li>
                 <li>When stopping the game, no more events should get emitted (clearInterval(ref))</li>
-                <li>A new Odd component should get created for every odd number emitted, the same should happen for the Even Component (on even numbers)</li>
+                <li>A new Odd component should get created for every odd number emitted, the same should happen for the Even
+                    Component (on even numbers)</li>
                 <li>Simply output Odd - NUMBER or Even - NUMBER in the two components</li>
                 <li>Style the element (e.g. paragraph) holding your output text differently in both components</li>
             </ol>
             <hr>
-            <app-game-control
-                (gameRunning)="onGameStarted($event)"></app-game-control>
+            <app-game-control (gameRunning)="onGameStarted($event)"></app-game-control>
             <app-odd *ngFor="let odd of odds" [number]="odd"></app-odd>
             <app-even *ngFor="let even of evens" [number]="even"></app-even>
+        </div>
+    </div>
+    <h3 (click)="viewFourthAssignment = !viewFourthAssignment" style="cursor:pointer">Fourth Assignment</h3>
+    <div class="row" *ngIf="viewFourthAssignment">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <ol>
+                <li>Mail address (should not be empty and should be an email address)</li>
+                <li>A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced", "Pro");
+                    set "Advanced" as Default</li>
+                <li>A Password field (should not be empty)</li>
+                <li>A Submit Button</li>
+                <li>Display a warning message if the Form is invalid AND was touched. Display a warning message below each input
+                    if it's invalid.</li>
+                <li>Upon submitting the form, you should simply print the Value of the Form to the Console. Optionally, display
+                    it in your template.</li>
+            </ol>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="form-group has-feedback" [ngClass]="{'has-success' : email.valid && email.touched, 'has-error': !email.valid && email.touched}">
+                    <label class="control-label" for="email">E-mail</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailStatus" required ngModel email name="email" #email="ngModel">
+                    </div>
+                    <span *ngIf="email.valid && email.touched; then emailValid"></span>
+                    <span *ngIf="!email.valid && email.touched; then emailInvalid"></span>
+                    <ng-template #emailValid>
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        <span id="emailStatus" class="sr-only">(success)</span>
+                    </ng-template>
+                    <ng-template #emailInvalid>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span id="emailStatus" class="sr-only">(failure)</span>
+                        <span class="help-block">Enter a valid email</span>
+                    </ng-template>
+                </div>
+
+                <label for="subscription">Subscription type</label>
+                <select id="subscription" class="form-control" [ngModel]="subscriptionType" name="subscription">
+                    <option value="basic">Basic subscription</option>
+                    <option value="advanced">Advanced subscription</option>
+                    <option value="pro">Pro subscription</option>
+                </select>
+
+                <div class="form-group has-feedback" [ngClass]="{'has-success' : password.valid && password.touched, 'has-error': !password.valid && password.touched}">
+                    <label class="control-label" for="password">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </span>
+                        <input type="password" class="form-control" id="password" aria-describedby="passwordStatus" required ngModel password name="password"
+                            #password="ngModel">
+                    </div>
+                    <span *ngIf="password.valid && password.touched; then passwordValid"></span>
+                    <span *ngIf="!password.valid && password.touched; then passwordInvalid"></span>
+                    <ng-template #passwordValid>
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        <span id="passwordStatus" class="sr-only">(success)</span>
+                    </ng-template>
+                    <ng-template #passwordInvalid>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span id="passwordStatus" class="sr-only">(failure)</span>
+                        <span class="help-block">Enter a password</span>
+                    </ng-template>
+                </div>
+
+                <div [hidden]="!(f.touched && !f.valid)" class="alert alert-danger">
+                    <strong>Danger!</strong> Form is not valid
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+            </form>
         </div>
     </div>
 </div>

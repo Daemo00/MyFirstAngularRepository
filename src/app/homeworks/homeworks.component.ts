@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-homeworks',
@@ -6,11 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homeworks.component.css']
 })
 export class HomeworksComponent {
-
+  subscriptionType = "advanced";
   btnDetailsClicked = false;
   arrLogDetailClicks = [];
-  viewSecondAssignment = false;
-  viewThirdAssignment = true;
 
   odds = [];
   evens = [];
@@ -29,4 +28,8 @@ export class HomeworksComponent {
       this.evens.push(n);
     }
   }
-}
+  onSubmit(f: NgForm){
+    console.log(f.value);
+    f.reset({subscription: 'advanced'});
+  }
+} 

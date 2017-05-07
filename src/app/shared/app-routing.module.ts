@@ -17,7 +17,8 @@ const appRoutes: Routes = [
             { path: '', component: RecipeStartComponent },
             { path: 'new', component: RecipeEditComponent },
             { path: ':recipeId', component: RecipeDetailComponent },
-            { path: ':recipeId/edit', component: RecipeEditComponent, canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard] }
+            { path: ':recipeId/edit', component: RecipeEditComponent, 
+                canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard] }
         ]
     }
     , {

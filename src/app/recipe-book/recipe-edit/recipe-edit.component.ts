@@ -12,10 +12,10 @@ import { Ingredient } from "app/shared/ingredient.model";
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit, CanComponentDeactivate {
-    recipeIngredients: Ingredient[];
-    recipeDescription: string;
-    recipeName: string;
-    changesSaved: boolean = false;
+  recipeIngredients: Ingredient[];
+  recipeDescription: string;
+  recipeName: string;
+  changesSaved: boolean = false;
   recipe: Recipe;
   editMode: boolean = false;
 
@@ -36,9 +36,9 @@ export class RecipeEditComponent implements OnInit, CanComponentDeactivate {
       return true;
     }
     if (
-      (this.recipeName !== this.recipe.name 
-      || this.recipeDescription !== this.recipe.description
-      || this.recipeIngredients !== this.recipe.ingredients) && !this.changesSaved) {
+      (this.recipeName !== this.recipe.name
+        || this.recipeDescription !== this.recipe.description
+        || this.recipeIngredients !== this.recipe.ingredients) && !this.changesSaved) {
       return confirm('Do you want to discard the changes?');
     } else {
       return true;
