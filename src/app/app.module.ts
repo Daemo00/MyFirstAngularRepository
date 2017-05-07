@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -24,6 +24,8 @@ import { AuthGuard } from "app/shared/auth-guard.service";
 import { AuthService } from "app/shared/auth.service";
 import { CanDeactivateGuard } from "app/recipe-book/recipe-edit/can-deactivate-guard.service";
 import { HomeComponent } from './home/home.component';
+import { FifthAssignmentComponent } from './homeworks/fifth-assignment/fifth-assignment.component';
+import { FourthAssignmentComponent } from './homeworks/fourth-assignment/fourth-assignment.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +44,14 @@ import { HomeComponent } from './home/home.component';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    HomeComponent
+    HomeComponent,
+    FifthAssignmentComponent,
+    FourthAssignmentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule
   ],

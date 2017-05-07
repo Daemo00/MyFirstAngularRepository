@@ -7,7 +7,6 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./homeworks.component.css']
 })
 export class HomeworksComponent {
-  subscriptionType = "advanced";
   btnDetailsClicked = false;
   arrLogDetailClicks = [];
 
@@ -27,9 +26,5 @@ export class HomeworksComponent {
     else{
       this.evens.push(n);
     }
-  }
-  onSubmit(f: NgForm){
-    console.log(f.value);
-    f.reset({subscription: 'advanced'});
   }
 } 
