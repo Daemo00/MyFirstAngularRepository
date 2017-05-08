@@ -17,8 +17,10 @@ const appRoutes: Routes = [
             { path: '', component: RecipeStartComponent },
             { path: 'new', component: RecipeEditComponent },
             { path: ':recipeId', component: RecipeDetailComponent },
-            { path: ':recipeId/edit', component: RecipeEditComponent, 
-                canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard] }
+            {
+                path: ':recipeId/edit', component: RecipeEditComponent,
+                canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard]
+            }
         ]
     }
     , {
@@ -26,7 +28,11 @@ const appRoutes: Routes = [
         // canActivate: [AuthGuard],
         // canActivateChild: [AuthGuard],
         component: ShoppingListComponent,
-    }
+    },
+    { 
+        path: 'homeworks', loadChildren: 'app/homeworks/homeworks.module#HomeworksModule' 
+    },
+
     // ,{
     //     path: 'shoppingList',
     //     // canActivate: [AuthGuard],

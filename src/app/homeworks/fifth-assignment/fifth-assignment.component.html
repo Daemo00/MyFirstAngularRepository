@@ -8,7 +8,7 @@
       <input class="form-control" formControlName="projectName" type="text" id="projectName">
     </div>
     <span *ngIf="!projectForm.get('projectName').valid && projectForm.get('projectName').touched" class="help-block">
-      <span *ngIf="projectForm.get('projectName').errors['asyncForbiddenProjectName']">This project name is forbidden (asynchronously)!</span>
+      <span *ngIf="projectForm.get('projectName').errors && projectForm.get('projectName').errors['asyncForbiddenProjectName']">This project name is forbidden (asynchronously)!</span>
       <span *ngIf="projectForm.get('projectName').errors && projectForm.get('projectName').errors['forbiddenProjectName']">This project name is forbidden!</span>
       <span *ngIf="projectForm.get('projectName').errors && projectForm.get('projectName').errors['required']">This field is required!</span>
     </span>
