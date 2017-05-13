@@ -8,6 +8,11 @@ import { GameControlComponent } from "app/homeworks/third-assignment/game-contro
 import { HomeworksComponent } from "app/homeworks/homeworks.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HomeworksRoutingModule } from "app/homeworks/homeworks-routing.module";
+import { SixthAssignmentComponent } from './sixth-assignment/sixth-assignment.component';
+import { FilterPipe } from "app/homeworks/sixth-assignment/filter.pipe";
+import { ShortenPipe } from "app/homeworks/sixth-assignment/shorten.pipe";
+import { ReversePipe } from './sixth-assignment/reverse.pipe';
+import { SortPipe } from './sixth-assignment/sort.pipe';
 
 @NgModule({
   imports: [
@@ -22,6 +27,11 @@ import { HomeworksRoutingModule } from "app/homeworks/homeworks-routing.module";
     OddComponent,
     EvenComponent,
     FifthAssignmentComponent,
-    FourthAssignmentComponent]
+    FourthAssignmentComponent,
+    SixthAssignmentComponent,
+    FilterPipe,
+    ShortenPipe,
+    ReversePipe,
+    SortPipe]
 })
 export class HomeworksModule { }
