@@ -5,7 +5,6 @@ import { RecipeBookService } from "app/recipe-book/recipe-book.service";
   selector: 'app-recipe-book',
   templateUrl: './recipe-book.component.html',
   styleUrls: ['./recipe-book.component.css'],
-  providers: [RecipeBookService]
 })
 export class RecipeBookComponent implements OnInit {
 

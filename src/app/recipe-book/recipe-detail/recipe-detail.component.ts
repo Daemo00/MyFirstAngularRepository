@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, Data, Params } from "@angular/router";
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent {
-    // id: number;
+  id: number;
   recipe: Recipe;
 
   constructor(private recipeBookService: RecipeBookService,
@@ -21,7 +21,8 @@ export class RecipeDetailComponent {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.recipe = this.recipeBookService.getRecipes()[+params['recipeId']];
+        this.id = +params['recipeId'];
+        this.recipe = this.recipeBookService.getRecipes()[this.id];
       }
     );
     // const id = +this.route.snapshot.params['id'];
@@ -37,5 +38,10 @@ export class RecipeDetailComponent {
 
   onToShoppingList() {
     this.recipeBookService.addIngredientsToShoppingList(this.recipe.ingredients);
+    this.router.navigate(["shoppingList"])
+  }
+
+  onDeleteRecipe(){
+    this.recipeBookService.deleteRecipe(this.id);
   }
 }

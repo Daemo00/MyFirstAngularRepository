@@ -21,6 +21,7 @@ import { AuthService } from "app/shared/auth.service";
 import { CanDeactivateGuard } from "app/recipe-book/recipe-edit/can-deactivate-guard.service";
 import { HomeComponent } from './home/home.component';
 import { HomeworksModule } from "app/homeworks/homeworks.module";
+import { RecipeBookService } from "app/recipe-book/recipe-book.service";
 
 @NgModule({
   declarations: [
@@ -39,12 +40,14 @@ import { HomeworksModule } from "app/homeworks/homeworks.module";
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
     HomeworksModule
   ],
-  providers: [ShoppingListService, AuthService, AuthGuard, CanDeactivateGuard],
+  providers: [ShoppingListService, RecipeBookService
+    , AuthService, AuthGuard, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
