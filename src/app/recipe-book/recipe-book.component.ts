@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeBookService } from "app/recipe-book/recipe-book.service";
+import { ServerService } from "app/data/server.service";
 
 @Component({
   selector: 'app-recipe-book',
@@ -8,9 +9,9 @@ import { RecipeBookService } from "app/recipe-book/recipe-book.service";
 })
 export class RecipeBookComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serverService: ServerService) { }
 
   ngOnInit(): void {
-
+    this.serverService.getStuff();
   }
 }

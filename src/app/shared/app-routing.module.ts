@@ -5,33 +5,27 @@ import { ShoppingListComponent } from "app/shopping-list/shopping-list.component
 import { RecipeDetailComponent } from "app/recipe-book/recipe-detail/recipe-detail.component";
 import { RecipeStartComponent } from "app/recipe-book/recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "app/recipe-book/recipe-edit/recipe-edit.component";
-import { AuthGuard } from "app/shared/auth-guard.service";
+import { AuthGuard } from "app/auth/auth-guard.service";
 import { CanDeactivateGuard } from "app/recipe-book/recipe-edit/can-deactivate-guard.service";
 import { HomeComponent } from "app/home/home.component";
+import { ServerService } from "app/data/server.service";
+import { SignupComponent } from "app/auth/signup/signup.component";
+import { SigninComponent } from "app/auth/signin/signin.component";
+import { FirebaseResolver } from "app/core/firebase.resolver";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
     {
-        path: 'recipes', component: RecipeBookComponent,
-        children: [
-            { path: '', component: RecipeStartComponent },
-            { path: 'new', component: RecipeEditComponent },
-            { path: ':recipeId', component: RecipeDetailComponent },
-            {
-                path: ':recipeId/edit', component: RecipeEditComponent,
-                canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard]
-            }
-        ]
-    }
-    , {
         path: 'shoppingList',
         // canActivate: [AuthGuard],
         // canActivateChild: [AuthGuard],
         component: ShoppingListComponent,
     },
-    { 
-        path: 'homeworks', loadChildren: 'app/homeworks/homeworks.module#HomeworksModule' 
+    {
+        path: 'homeworks', loadChildren: 'app/homeworks/homeworks.module#HomeworksModule'
     },
+    { path: 'signup', component: SignupComponent, resolve: { firebaseApp: FirebaseResolver } },
+    { path: 'signin', component: SigninComponent, resolve: { firebaseApp: FirebaseResolver } }
 
     // ,{
     //     path: 'shoppingList',
