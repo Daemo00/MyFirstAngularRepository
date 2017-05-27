@@ -43,7 +43,7 @@ export class RecipeDetailComponent implements OnInit {
 
   onToShoppingList() {
     this.recipeBookService.addIngredientsToShoppingList(this.recipe.ingredients);
-    this.router.navigate(["shoppingList"])
+    this.router.navigate(["shopping-list"])
   }
 
   onDeleteRecipe(){
