@@ -15,6 +15,7 @@ import { ErrorPageComponent } from "app/shared/error-page/error-page.component";
 import { SharedModule } from "app/shared/shared.module";
 import { AuthModule } from "app/auth/auth.module";
 import { CoreModule } from "app/core/core.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CoreModule } from "app/core/core.module";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     HttpModule,
     AuthModule, // order is important!

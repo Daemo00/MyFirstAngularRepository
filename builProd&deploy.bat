@@ -1,1 +1,1 @@
-ng build --prod --aot && firebase deploy
+ng build --prod --aot && copy dist\index.html dist\404.html && firebase deploy
