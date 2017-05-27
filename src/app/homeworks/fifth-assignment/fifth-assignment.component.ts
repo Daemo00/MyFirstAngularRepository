@@ -9,6 +9,7 @@ import { customValidators } from "app/homeworks/fifth-assignment/custom-validato
   styleUrls: ['./fifth-assignment.component.css']
 })
 export class FifthAssignmentComponent implements OnInit {
+  projectName;
   projectForm: FormGroup;
   statuses: { id: string, description: string }[] = [
     { id: "stable", description: "Stable" },

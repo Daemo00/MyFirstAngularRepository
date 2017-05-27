@@ -13,6 +13,7 @@ import { FormGroup, FormControl, FormArray, Validators } from "@angular/forms";
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit, CanComponentDeactivate {
+  ingredientsFormArray: FormArray;
   id: number;
   recipeIngredients: Ingredient[];
   recipeDescription: string;
@@ -35,6 +36,7 @@ export class RecipeEditComponent implements OnInit, CanComponentDeactivate {
         this.initForm();
       }
     );
+    this.ingredientsFormArray = <FormArray> this.recipeForm.get('ingredients');
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {

@@ -11,7 +11,7 @@ import { RecipeBookService } from "app/recipe-book/recipe-book.service";
 })
 export class HeaderComponent implements OnInit {
   appName = this.serverService.getAppNameObservable(); // this is 'unpacked' (subscribed) by the async pipe in HTML
-  constructor(private authService: AuthService, private serverService: ServerService, private recipeService: RecipeBookService) { }
+  constructor(public authService: AuthService, private serverService: ServerService, private recipeService: RecipeBookService) { }
 
   ngOnInit(): void {
   }

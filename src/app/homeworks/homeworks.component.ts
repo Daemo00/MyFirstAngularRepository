@@ -7,23 +7,29 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./homeworks.component.css']
 })
 export class HomeworksComponent {
+  viewSecondAssignment;
+  viewThirdAssignment;
+  viewFourthAssignment;
+  viewFifthAssignment;
+  viewSixthAssignment;
+
   btnDetailsClicked = false;
   arrLogDetailClicks = [];
 
   odds = [];
   evens = [];
 
-  onDetailsClicked(){
+  onDetailsClicked() {
     this.btnDetailsClicked = !this.btnDetailsClicked;
-    this.arrLogDetailClicks.push({number: this.arrLogDetailClicks.length + 1, date: new Date()});
+    this.arrLogDetailClicks.push({ number: this.arrLogDetailClicks.length + 1, date: new Date() });
   }
 
-  onGameStarted(n: number){
-    console.log(n%2);
-    if(n%2 == 1){
+  onGameStarted(n: number) {
+    console.log(n % 2);
+    if (n % 2 == 1) {
       this.odds.push(n);
     }
-    else{
+    else {
       this.evens.push(n);
     }
   }

@@ -51,7 +51,9 @@ export class AuthService implements OnInit {
     }
 
     isAuthenticated() {
-        if (localStorage.length > 0 && this.token == null) {
+        if (this.token == null &&
+            localStorage.length > 0 &&
+            localStorage.getItem("firebase:authUser:" + FirebaseResolver.config.apiKey + ":[DEFAULT]")) {
             // Initialize Firebase
             this.firebaseResolver.resolve(null, null);
             var storedData = JSON.parse(

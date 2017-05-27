@@ -10,7 +10,7 @@ import { CanDeactivateGuard } from "app/recipe-book/recipe-edit/can-deactivate-g
 
 const recipesRoutes: Routes = [
   {
-        path: 'recipes', component: RecipeBookComponent, canActivateChild: [AuthGuard],
+        path: '', component: RecipeBookComponent, canActivateChild: [AuthGuard],
         children: [
             { path: '', component: RecipeStartComponent },
             { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
