@@ -11,19 +11,31 @@ import { ServerService } from "app/data/server.service";
 import { RecipeBookService } from "app/recipe-book/recipe-book.service";
 import { FirebaseResolver } from "app/core/firebase.resolver";
 import { AppRoutingModule } from "app/app-routing.module";
+import { SharedModule } from "app/shared/shared.module";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     AppRoutingModule
   ],
   declarations: [
     HeaderComponent,
     HomeComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    FooterComponent
   ],
-    providers: [ShoppingListService, RecipeBookService
-    , AuthService, AuthGuard, CanDeactivateGuard, ServerService, FirebaseResolver],
-    exports: [AppRoutingModule, HeaderComponent]
+    providers: [
+      ShoppingListService, 
+      RecipeBookService, 
+      AuthService, 
+      AuthGuard, 
+      CanDeactivateGuard, 
+      ServerService, 
+      FirebaseResolver],
+    exports: [
+      AppRoutingModule, 
+      HeaderComponent,
+      FooterComponent]
 })
 export class CoreModule { }

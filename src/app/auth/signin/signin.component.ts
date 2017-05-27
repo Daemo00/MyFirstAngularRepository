@@ -7,17 +7,17 @@ import { NgForm } from "@angular/forms";
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent {
 
   constructor(private authService: AuthService) { }
-
-  ngOnInit() {
-  }
 
   onSignin(signuForm: NgForm){
     const email = signuForm.value.email;
     const password = signuForm.value.password;
-    this.authService.signinUser(email, password);   
+    this.authService.signinUser(email, password)
+    .catch((result) => {
+        if (result)
+          window.alert(result.message);
+      });;   
   }
-
 }

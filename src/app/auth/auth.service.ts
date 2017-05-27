@@ -15,19 +15,17 @@ export class AuthService implements OnInit {
 
     }
 
-    signupUser(email: string, password: string) {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .catch(error => { console.log(error) });
+    signupUser(email: string, password: string): firebase.Promise<any> {
+        return firebase.auth().createUserWithEmailAndPassword(email, password);
+            // .catch(error => { console.log(error) });
     }
 
-    signinUser(email: string, password: string) {
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .catch(error => { console.log(error) })
+    signinUser(email: string, password: string): firebase.Promise<any> {
+        return firebase.auth().signInWithEmailAndPassword(email, password)
             .then(response => {
                 if (response) { // response is undefined in case of unsuccessful login
                     this.getToken();
                     this.router.navigate(['/']);
-
                 }
             });
     }

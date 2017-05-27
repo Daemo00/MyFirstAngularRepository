@@ -1,0 +1,27 @@
+{
+	"rules":
+	{
+		"appName": {
+			".read": "true",
+			".write": "true"
+		},
+		"recipes": {
+			".read": "auth != null",
+			".write": "auth != null"
+		},
+		"users": {
+			".read": true,
+			"$uid": {
+				".write": "auth.uid === $uid"
+			}
+		},
+		"followers": {
+			"$followedUid": {
+				"$followerUid": {
+					".read": "auth.uid === $followerUid",
+					".write": "auth.uid === $followerUid"
+				}
+			}
+		}
+	}
+}
